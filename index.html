@@ -422,24 +422,31 @@
 </section>
 
 <!-- ══════════════════════════════════
-     WORK DETAIL
+     WORK DETAIL — OneAds Digital
 ══════════════════════════════════ -->
 <section id="work-detail" class="section-py">
   <div class="container px-4">
     <div class="mb-4 fade-in">
-      <p class="eyebrow">Chi tiết công việc</p>
-      <div class="section-script">Chi tiết <span>Công việc</span></div>
+      <p class="eyebrow">Dự án 2</p>
+      <div class="section-script">OneAds <span>Digital</span></div>
       <div class="pink-line mt-2"></div>
     </div>
     <div class="row g-5 align-items-start">
+
+      <!-- LEFT: role + date + description -->
       <div class="col-lg-5 fade-in">
-        <div class="work-body-text">
-          <p>Trong quá trình thực hiện các dự án, tôi đảm nhận nhiều vai trò từ lên ý tưởng, sản xuất nội dung đến triển khai thực tế và đo lường kết quả.</p>
-          <p>Mỗi công việc đều được lên kế hoạch chi tiết với timeline rõ ràng, đảm bảo tiến độ và chất lượng đầu ra cao nhất.</p>
-          <p>Không ngừng học hỏi từ mỗi dự án và áp dụng bài học vào công việc tiếp theo để liên tục cải thiện hiệu quả.</p>
+        <div class="proj-script-wrap mb-0">
+          <span class="proj-script-T">S</span>
+          <span class="proj-date-badge">06/2024 - 09/2024</span>
+        </div>
+        <div class="proj-role-text">ocial Media Intern</div>
+        <div class="work-body-text mt-3">
+          <p>Thực tập tại OneAds Digital với vai trò Social Media Intern, tham gia trực tiếp vào quy trình sản xuất và triển khai nội dung cho nhiều thương hiệu.</p>
+          <p>Học hỏi và áp dụng kỹ năng copywriting, lên kế hoạch nội dung và phân tích hiệu quả chiến dịch trong môi trường Agency chuyên nghiệp.</p>
         </div>
       </div>
-      <!-- Skill bars — loaded via HTMX on first intersect -->
+
+      <!-- RIGHT: skill bars HTMX -->
       <div class="col-lg-7 fade-in"
            id="skill-bars"
            hx-get="partials/skill-bars.html"
@@ -449,8 +456,7 @@
         <div id="skills-spinner" class="htmx-indicator text-center py-3">
           <span class="pink-spinner"></span>
         </div>
-        <!-- static fallback -->
-        <div class="d-flex flex-column gap-3" id="skill-bars-static">
+        <div class="d-flex flex-column gap-3">
           <div>
             <div class="sb-label"><span>Content Creation</span><span>90%</span></div>
             <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
@@ -460,19 +466,19 @@
             <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
           </div>
           <div>
-            <div class="sb-label"><span>Event Organization</span><span>75%</span></div>
-            <div class="progress"><div class="progress-bar" style="width:75%"></div></div>
+            <div class="sb-label"><span>Scriptwriting</span><span>80%</span></div>
+            <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
           </div>
           <div>
-            <div class="sb-label"><span>Graphic Design (Canva)</span><span>80%</span></div>
-            <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+            <div class="sb-label"><span>Graphic Design (Canva)</span><span>78%</span></div>
+            <div class="progress"><div class="progress-bar" style="width:78%"></div></div>
           </div>
           <div>
             <div class="sb-label"><span>Copywriting</span><span>88%</span></div>
             <div class="progress"><div class="progress-bar" style="width:88%"></div></div>
           </div>
           <div>
-            <div class="sb-label"><span>Presentation</span><span>82%</span></div>
+            <div class="sb-label"><span>Event Management</span><span>82%</span></div>
             <div class="progress"><div class="progress-bar" style="width:82%"></div></div>
           </div>
         </div>
@@ -482,13 +488,13 @@
 </section>
 
 <!-- ══════════════════════════════════
-     MASTER FILE — HTMX tab switching
+     MASTER FILE — Event timeline
 ══════════════════════════════════ -->
 <section id="master-file" class="section-py">
   <div class="glow" style="width:400px;height:400px;background:var(--pink);top:50%;right:-100px;transform:translateY(-50%);"></div>
   <div class="container px-4" style="position:relative;z-index:1;">
     <div class="mb-4 fade-in">
-      <p class="eyebrow">Tài liệu</p>
+      <p class="eyebrow">Tài liệu sự kiện</p>
       <div class="section-script">View Full Event <span>Master File</span></div>
       <div class="pink-line mt-2"></div>
     </div>
@@ -501,7 +507,6 @@
             <span class="ss-dot y"></span>
             <span class="ss-dot g"></span>
           </div>
-          <!-- HTMX-powered tab navigation -->
           <ul class="nav ss-tabs" id="sheetTabs">
             <li class="nav-item">
               <a class="nav-link active"
@@ -540,23 +545,22 @@
                  href="javascript:void(0)">Checklist</a>
             </li>
           </ul>
-          <!-- sheet content target -->
           <div id="sheet-body" class="ss-tab-pane" style="min-height:220px;">
             <div id="sheet-spinner" class="htmx-indicator text-center py-4">
               <span class="pink-spinner"></span>
             </div>
-            <!-- Default: Timeline table (also in partial for HTMX) -->
             <table class="table ss-table">
               <thead>
                 <tr><th>Hạng mục</th><th>Người phụ trách</th><th>Deadline</th><th>Trạng thái</th></tr>
               </thead>
               <tbody>
-                <tr><td>Lên kế hoạch tổng thể</td><td>Đắc Ngọc</td><td>T1/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
-                <tr><td>Thiết kế backdrop, banner</td><td>Design Team</td><td>T2/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
-                <tr><td>Liên hệ nhà tài trợ</td><td>Đắc Ngọc</td><td>T2/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
-                <tr><td>Booking MC, âm thanh</td><td>Event Team</td><td>T3/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
-                <tr><td>Truyền thông mạng xã hội</td><td>Đắc Ngọc</td><td>T3/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
-                <tr><td>Báo cáo sau sự kiện</td><td>Đắc Ngọc</td><td>T4/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+                <tr><td>Lên kế hoạch tổng thể</td><td>Vân Ngọc</td><td>10/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+                <tr><td>Thiết kế backdrop, banner</td><td>Design Team</td><td>11/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+                <tr><td>Liên hệ nhà tài trợ</td><td>Vân Ngọc</td><td>11/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+                <tr><td>Booking MC, âm thanh</td><td>Event Team</td><td>12/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+                <tr><td>Truyền thông mạng xã hội</td><td>Vân Ngọc</td><td>12/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+                <tr><td>Tổ chức sự kiện</td><td>Vân Ngọc</td><td>01/2025</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+                <tr><td>Báo cáo sau sự kiện</td><td>Vân Ngọc</td><td>02/2025</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -565,10 +569,10 @@
 
       <div class="col-lg-6 fade-in">
         <ul class="mf-bullets mb-3">
-          <li><i class="fas fa-check-circle"></i>Bộ tài liệu đầy đủ toàn bộ quy trình tổ chức sự kiện từ khâu lên kế hoạch đến ngày diễn ra.</li>
+          <li><i class="fas fa-check-circle"></i>Bộ tài liệu đầy đủ toàn bộ quy trình tổ chức sự kiện kỷ niệm 30 năm Mái ấm Truyền Tin từ khâu lên kế hoạch đến ngày diễn ra.</li>
           <li><i class="fas fa-check-circle"></i>Các sheet riêng biệt: ngân sách, nhân sự, timeline, checklist và báo cáo kết quả.</li>
-          <li><i class="fas fa-check-circle"></i>Công cụ quản lý giúp toàn team phối hợp nhịp nhàng, không bỏ sót công việc nào.</li>
-          <li><i class="fas fa-check-circle"></i>Cập nhật real-time, dễ dàng chia sẻ và theo dõi tiến độ từ xa.</li>
+          <li><i class="fas fa-check-circle"></i>Tự gây quỹ 100% — tổ chức thành công sự kiện cho hơn 200 khách mời.</li>
+          <li><i class="fas fa-check-circle"></i>Phối hợp giữa UEF và Mái ấm Truyền Tin, hỗ trợ trẻ em mồ côi.</li>
         </ul>
         <p style="font-size:.78rem;color:var(--gray);">
           Tổng cộng <strong class="text-pink">50+ trang tài liệu</strong> từ concept ban đầu đến tổng kết sau sự kiện.
@@ -580,116 +584,80 @@
 </section>
 
 <!-- ══════════════════════════════════
-     SOCIAL / A&P
+     ACHIEVEMENTS / COMPETITIONS
 ══════════════════════════════════ -->
 <section id="social-stats" class="section-py">
   <div class="container px-4">
-    <!-- Brand header -->
-    <div class="d-flex align-items-flex-end gap-3 mb-4 fade-in">
-      <div class="brand-a">A</div>
-      <div class="align-self-end pb-1">
-        <div class="brand-sub">&amp; P Media</div>
-        <div style="font-size:.68rem;color:var(--gray2);letter-spacing:2px;text-transform:uppercase;">Social Media Presence</div>
-      </div>
-    </div>
-
-    <div class="row g-5 align-items-start">
-      <!-- LEFT: laptop + stats -->
-      <div class="col-lg-6 fade-in">
-        <div class="mb-3">
-          <div class="laptop-screen">
-            <!-- <img src="images/artgesa-web.jpg" alt=""> -->
-            <div class="ls-ph"><i class="fas fa-desktop"></i><span>Artgesa Website Preview</span></div>
-          </div>
-          <div class="laptop-base"></div>
-          <div class="laptop-foot"></div>
-        </div>
-        <div class="row g-3 mt-1">
-          <div class="col-4">
-            <div class="stat-box-custom">
-              <div class="text-pink mb-1"><i class="fab fa-instagram fa-lg"></i></div>
-              <div class="sn">180</div>
-              <div class="sl">Followers</div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="stat-box-custom">
-              <div class="text-pink mb-1"><i class="fab fa-facebook fa-lg"></i></div>
-              <div class="sn">500+</div>
-              <div class="sl">Page Likes</div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="stat-box-custom">
-              <div class="text-pink mb-1"><i class="fas fa-chart-line fa-lg"></i></div>
-              <div class="sn">2K+</div>
-              <div class="sl">Reach/Post</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: text + team photos -->
-      <div class="col-lg-6 artgesa-text fade-in">
-        <p class="eyebrow mb-1">Thương hiệu &amp; Truyền thông</p>
-        <div class="section-script mb-2" style="font-size:2rem;">Artgesa <span>Campaign</span></div>
-        <div class="pink-line mb-3"></div>
-        <p>Chiến dịch xây dựng thương hiệu toàn diện cho <strong>Artgesa</strong>, bao gồm thiết kế bộ nhận diện, kế hoạch nội dung và triển khai các kênh digital.</p>
-        <p>Kết quả: tăng trưởng organic followers, cải thiện engagement rate và nâng cao nhận diện thương hiệu.</p>
-        <p>Nội dung được lên lịch đều đặn với strategy phù hợp từng nền tảng: Facebook, Instagram và website.</p>
-        <div class="row g-2 mt-2">
-          <div class="col-4"><div class="team-photo-ph"><i class="fas fa-users"></i></div></div>
-          <div class="col-4"><div class="team-photo-ph"><i class="fas fa-camera"></i></div></div>
-          <div class="col-4"><div class="team-photo-ph"><i class="fas fa-image"></i></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     WHAT I DID
-══════════════════════════════════ -->
-<section id="what-i-did" class="section-py">
-  <div class="wid-bg">WHAT I DID</div>
-  <div class="container px-4" style="position:relative;z-index:1;">
-    <div class="mb-4 fade-in">
-      <p class="eyebrow">Thành tựu</p>
-      <div class="section-script">What <span>I Did?</span></div>
+    <div class="mb-5 fade-in">
+      <p class="eyebrow">Dự án 3</p>
+      <div class="section-script">Achievements <span>&amp; Awards</span></div>
       <div class="pink-line mt-2"></div>
     </div>
+
     <div class="row g-5 align-items-start">
-      <div class="col-lg-5 wid-text fade-in">
-        <p>Những gì tôi đã thực hiện được trong suốt hành trình học tập và làm việc:</p>
-        <p>Tôi đã tham gia và dẫn dắt nhiều dự án truyền thông, sự kiện và xây dựng thương hiệu.</p>
-        <div class="money-block">
-          <div class="mb-label">Doanh thu sự kiện</div>
+      <!-- LEFT: stats cards -->
+      <div class="col-lg-6 fade-in">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="stat-box-custom text-center">
+              <div class="text-pink mb-2"><i class="fas fa-trophy fa-2x"></i></div>
+              <div class="sn">Top 3</div>
+              <div class="sl">Cuộc thi Content Creator UEF 2024</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="stat-box-custom text-center">
+              <div class="text-pink mb-2"><i class="fas fa-medal fa-2x"></i></div>
+              <div class="sn">Top 5</div>
+              <div class="sl">Marketer Trẻ Tài Năng 2023</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="stat-box-custom text-center">
+              <div class="text-pink mb-2"><i class="fas fa-star fa-2x"></i></div>
+              <div class="sn">200+</div>
+              <div class="sl">Người tham dự sự kiện</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="stat-box-custom text-center">
+              <div class="text-pink mb-2"><i class="fas fa-users fa-2x"></i></div>
+              <div class="sn">3+</div>
+              <div class="sl">Dự án thiện nguyện</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: achievement list -->
+      <div class="col-lg-6 artgesa-text fade-in">
+        <p class="eyebrow mb-1">Thành tích nổi bật</p>
+        <div class="section-script mb-2" style="font-size:1.8rem;">What <span>I Did</span></div>
+        <div class="pink-line mb-3"></div>
+        <ul class="achievement-list">
+          <li><i class="fas fa-check-circle"></i>Top 3 cuộc thi sáng tạo nội dung UEF 2024 — chủ đề Marketing số</li>
+          <li><i class="fas fa-check-circle"></i>Trưởng ban tổ chức sự kiện quy mô 200+ người, tự gây quỹ 100%</li>
+          <li><i class="fas fa-check-circle"></i>Thực tập tại OneAds Digital — quản lý nội dung cho 3+ thương hiệu</li>
+          <li><i class="fas fa-check-circle"></i>Xây dựng fanpage tăng tương tác 40%+ trong 3 tháng không chạy ads</li>
+          <li><i class="fas fa-check-circle"></i>Viết kịch bản và dẫn chương trình cho các sự kiện chuyên nghiệp</li>
+          <li><i class="fas fa-check-circle"></i>Thành viên CLB Marketing UEF — điều phối team 15 người</li>
+        </ul>
+        <div class="money-block mt-4">
+          <div class="mb-label">Doanh thu gây quỹ sự kiện</div>
           <div class="mb-num">30.000.000+ VNĐ</div>
         </div>
-        <p>Không ngừng học hỏi, thử nghiệm và cải tiến — đó là phương châm tôi luôn theo đuổi.</p>
-      </div>
-      <div class="col-lg-7 fade-in">
-        <ul class="achievement-list">
-          <li><i class="fas fa-check-circle"></i>Lên kế hoạch và tổ chức thành công nhiều sự kiện quy mô vừa và lớn với hơn 200+ người tham dự</li>
-          <li><i class="fas fa-check-circle"></i>Xây dựng nội dung mạng xã hội tăng tương tác 40%+ trong 3 tháng</li>
-          <li><i class="fas fa-check-circle"></i>Quản lý fanpage và Instagram đạt 180+ followers hữu cơ không chạy quảng cáo</li>
-          <li><i class="fas fa-check-circle"></i>Thiết kế visual bằng Canva cho nhiều chiến dịch truyền thông đạt hiệu quả cao</li>
-          <li><i class="fas fa-check-circle"></i>Viết kịch bản, MC và dẫn chương trình cho các sự kiện chuyên nghiệp</li>
-          <li><i class="fas fa-check-circle"></i>Phối hợp nhịp nhàng với team đa bộ phận để hoàn thành dự án đúng tiến độ</li>
-          <li><i class="fas fa-check-circle"></i>Sản xuất bộ tài liệu Master File chuẩn hóa quy trình tổ chức sự kiện 50+ trang</li>
-        </ul>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════
-     RESULTS TABLE  (HTMX lazy-load)
+     RESULTS TABLE
 ══════════════════════════════════ -->
 <section id="results" class="section-py">
   <div class="container px-4">
     <div class="mb-4 fade-in">
-      <p class="eyebrow">Kết quả</p>
+      <p class="eyebrow">Tổng kết</p>
       <div class="section-script">Kết quả <span>Công việc</span></div>
       <div class="pink-line mt-2"></div>
     </div>
@@ -703,7 +671,6 @@
       <div id="results-spinner" class="htmx-indicator text-center py-4">
         <span class="pink-spinner"></span>
       </div>
-      <!-- Static fallback -->
       <table class="table result-table">
         <thead>
           <tr>
@@ -712,32 +679,32 @@
         </thead>
         <tbody>
           <tr>
-            <td>Artgesa Brand Campaign</td><td>Content Creator</td><td>Tăng 40% tương tác</td><td>3 tháng</td>
+            <td>KN 30 năm Mái ấm Truyền Tin</td><td>Trưởng ban Dự án</td><td>200+ khách, gây quỹ 30M+</td><td>10/2024–03/2025</td>
             <td><span class="badge-pink">Hoàn thành</span></td>
           </tr>
           <tr>
-            <td>Full Event Organization</td><td>Event Planner</td><td>200+ người tham dự</td><td>2 tháng</td>
+            <td>OneAds Digital Internship</td><td>Social Media Intern</td><td>3+ thương hiệu quản lý</td><td>06–09/2024</td>
             <td><span class="badge-pink">Hoàn thành</span></td>
           </tr>
           <tr>
-            <td>A&amp;P Social Media</td><td>Social Media Manager</td><td>180+ followers</td><td>Ongoing</td>
+            <td>Content Creator UEF 2024</td><td>Thí sinh</td><td>Top 3</td><td>2024</td>
+            <td><span class="badge-pink">Hoàn thành</span></td>
+          </tr>
+          <tr>
+            <td>Social Media Management</td><td>Content Creator</td><td>Tăng 40% tương tác</td><td>Ongoing</td>
             <td><span class="badge-pink">Đang thực hiện</span></td>
           </tr>
           <tr>
-            <td>Content Plan 2024</td><td>Copywriter &amp; Designer</td><td>30 posts/tháng</td><td>6 tháng</td>
-            <td><span class="badge-pink">Hoàn thành</span></td>
-          </tr>
-          <tr>
-            <td>Master File Documentation</td><td>Project Manager</td><td>Tài liệu đầy đủ 50+ trang</td><td>1 tháng</td>
+            <td>CLB Marketing UEF</td><td>Điều phối viên</td><td>Team 15 người</td><td>2023–2024</td>
             <td><span class="badge-pink">Hoàn thành</span></td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Contact / CTA button với HTMX POST -->
+    <!-- CTA -->
     <div class="text-center mt-5 fade-in">
-      <p style="font-size:.8rem;color:var(--gray);margin-bottom:16px;">Bạn muốn hợp tác? Hãy liên hệ với tôi!</p>
+      <p style="font-size:.82rem;color:var(--gray);margin-bottom:16px;">Bạn muốn hợp tác? Hãy liên hệ với tôi!</p>
       <button class="btn-pink"
               hx-post="partials/contact-handler.html"
               hx-swap="none"
@@ -761,24 +728,24 @@
         </div>
         <div>
           <div class="footer-logo">P<span>ORT</span>FOLIO</div>
-          <div style="font-size:.62rem;color:var(--gray2);margin-top:2px;">Pham Thai Dac Ngoc</div>
+          <div style="font-size:.62rem;color:var(--gray2);margin-top:2px;">Phạm Thái Vân Ngọc</div>
         </div>
       </div>
       <div class="col-md-4 text-center footer-copy">
-        © 2024 Pham Thai Dac Ngoc · All rights reserved<br>
+        © 2024 Phạm Thái Vân Ngọc · All rights reserved<br>
         <span class="text-pink" style="font-size:.62rem;">Content Creator · Social Media · Event Planner</span>
       </div>
       <div class="col-md-4 d-flex flex-column align-items-md-end gap-2">
-        <div class="d-flex gap-2 flex-wrap justify-content-md-end" style="font-size:.65rem;">
-          <a href="#hero" class="text-secondary text-decoration-none" style="letter-spacing:1.5px;text-transform:uppercase;font-size:.65rem;transition:color .3s;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color=''">Home</a>
-          <a href="#overview" class="text-secondary text-decoration-none" style="letter-spacing:1.5px;text-transform:uppercase;font-size:.65rem;transition:color .3s;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color=''">Overview</a>
-          <a href="#projects" class="text-secondary text-decoration-none" style="letter-spacing:1.5px;text-transform:uppercase;font-size:.65rem;transition:color .3s;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color=''">Projects</a>
-          <a href="#results" class="text-secondary text-decoration-none" style="letter-spacing:1.5px;text-transform:uppercase;font-size:.65rem;transition:color .3s;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color=''">Results</a>
+        <div class="d-flex gap-2 flex-wrap justify-content-md-end">
+          <a href="#hero"       class="footer-nav-link">Home</a>
+          <a href="#overview"   class="footer-nav-link">Overview</a>
+          <a href="#projects"   class="footer-nav-link">Projects</a>
+          <a href="#results"    class="footer-nav-link">Results</a>
         </div>
         <div class="d-flex gap-2">
-          <a href="#" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="footer-social-btn"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="footer-social-btn"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.facebook.com/vanngoc.phamthai" class="footer-social-btn" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="mailto:vanngoc2004.99@gmail.com"           class="footer-social-btn"><i class="fas fa-envelope"></i></a>
+          <a href="tel:0943606270"                            class="footer-social-btn"><i class="fas fa-phone"></i></a>
         </div>
       </div>
     </div>
