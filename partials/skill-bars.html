@@ -1,0 +1,37 @@
+<!-- partials/skill-bars.html — loaded by HTMX hx-get on intersect -->
+<div class="d-flex flex-column gap-3" id="skill-bars-static">
+  <div>
+    <div class="sb-label"><span>Content Creation</span><span>90%</span></div>
+    <div class="progress"><div class="progress-bar" role="progressbar" style="width:0%" data-target="90" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div></div>
+  </div>
+  <div>
+    <div class="sb-label"><span>Social Media Management</span><span>85%</span></div>
+    <div class="progress"><div class="progress-bar" role="progressbar" style="width:0%" data-target="85" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div></div>
+  </div>
+  <div>
+    <div class="sb-label"><span>Event Organization</span><span>75%</span></div>
+    <div class="progress"><div class="progress-bar" role="progressbar" style="width:0%" data-target="75" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div></div>
+  </div>
+  <div>
+    <div class="sb-label"><span>Graphic Design (Canva)</span><span>80%</span></div>
+    <div class="progress"><div class="progress-bar" role="progressbar" style="width:0%" data-target="80" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div></div>
+  </div>
+  <div>
+    <div class="sb-label"><span>Copywriting</span><span>88%</span></div>
+    <div class="progress"><div class="progress-bar" role="progressbar" style="width:0%" data-target="88" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div></div>
+  </div>
+  <div>
+    <div class="sb-label"><span>Presentation</span><span>82%</span></div>
+    <div class="progress"><div class="progress-bar" role="progressbar" style="width:0%" data-target="82" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div></div>
+  </div>
+</div>
+
+<script>
+  // Animate bars after HTMX injects them
+  requestAnimationFrame(() => {
+    document.querySelectorAll('#skill-bars-static .progress-bar').forEach(bar => {
+      const target = bar.getAttribute('data-target');
+      setTimeout(() => { bar.style.transition = 'width 1s ease'; bar.style.width = target + '%'; }, 100);
+    });
+  });
+</script>

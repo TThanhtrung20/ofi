@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Phạm Thái Vân Ngọc</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&family=Pinyon+Script&family=Cinzel:wght@400;700&family=Ruthie&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- HTMX -->
+  <script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+  <!-- Bootstrap JS bundle (Popper included) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body hx-boost="false">
+
+<!-- ══════════════════════════════════
+     TOAST (contact success)
+══════════════════════════════════ -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="contactToast" class="toast toast-custom align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        <i class="fas fa-check-circle text-pink me-2"></i>
+        Cảm ơn bạn! Tin nhắn đã được gửi thành công.
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     NAVBAR (Bootstrap)
+══════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand" href="#hero">P<span>ORT</span>FOLIO</a>
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse" data-bs-target="#mainNav"
+      aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#social-stats">Social</a></li>
+        <li class="nav-item"><a class="nav-link" href="#what-i-did">What I Did</a></li>
+        <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
+<section id="hero" class="section-py" style="padding-top:90px;">
+  <div class="glow" style="width:600px;height:600px;background:var(--pink);top:-180px;right:-160px;"></div>
+  <div class="glow" style="width:350px;height:350px;background:var(--pink);bottom:0;left:-80px;"></div>
+
+  <!-- Banner -->
+  <div class="text-center mb-4 fade-in" style="position:relative;z-index:2;padding-top:10px;">
+    <div class="banner-logo-wrap">
+      <svg class="banner-svg" viewBox="0 0 900 210" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <!-- Glow filter for P and F — spreads the hot-pink halo -->
+          <filter id="glow" x="-25%" y="-25%" width="150%" height="150%">
+            <feGaussianBlur stdDeviation="5" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <!-- Linear gradient: P/F are brighter at top, slightly darker at base -->
+          <linearGradient id="scriptGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#ff1493"/>
+            <stop offset="60%"  stop-color="#cc0066"/>
+            <stop offset="100%" stop-color="#a8004e"/>
+          </linearGradient>
+          <!-- Pale dusty-pink for ORT / OLIO -->
+          <!-- no gradient needed, flat fill with opacity -->
+        </defs>
+
+        <!-- Border rectangle: thin, bright magenta-pink -->
+        <rect x="70" y="42" width="760" height="134"
+              fill="none" stroke="#cc0066" stroke-width="1.6"/>
+
+        <!-- Corner squares (selection handles) — slightly lighter pink -->
+        <rect x="63"  y="35"  width="14" height="14" fill="#d4006e" opacity=".85"/>
+        <rect x="823" y="35"  width="14" height="14" fill="#d4006e" opacity=".85"/>
+        <rect x="63"  y="163" width="14" height="14" fill="#d4006e" opacity=".85"/>
+        <rect x="823" y="163" width="14" height="14" fill="#d4006e" opacity=".85"/>
+
+        <!-- Big "P" — deep magenta with gradient + glow -->
+        <text x="44" y="162"
+              font-family="'Ruthie', 'Pinyon Script', 'Great Vibes', cursive"
+              font-size="182"
+              fill="url(#scriptGrad)"
+              filter="url(#glow)">P</text>
+
+        <!-- "ORT" — Cinzel, dusty light pink, low opacity -->
+        <text x="156" y="156"
+              font-family="'Cinzel', 'Playfair Display', serif"
+              font-size="72"
+              font-weight="400"
+              fill="#e87ec0"
+              opacity="0.62"
+              letter-spacing="4">ORT</text>
+
+        <!-- Big "F" — same gradient + glow as P -->
+        <text x="428" y="168"
+              font-family="'Ruthie', 'Pinyon Script', 'Great Vibes', cursive"
+              font-size="200"
+              fill="url(#scriptGrad)"
+              filter="url(#glow)">F</text>
+
+        <!-- "OLIO" — same dusty light pink as ORT -->
+        <text x="542" y="156"
+              font-family="'Cinzel', 'Playfair Display', serif"
+              font-size="72"
+              font-weight="400"
+              fill="#e87ec0"
+              opacity="0.62"
+              letter-spacing="4">OLIO</text>
+
+        <!-- Cursor arrow — bright hot-pink, bottom-right outside border -->
+        <polygon points="840,172 840,202 849,195 856,212 862,209 855,192 866,192"
+                 fill="#cc0066" opacity="1"/>
+        <!-- Sparkle / click lines -->
+        <line x1="872" y1="173" x2="881" y2="166" stroke="#ff1493" stroke-width="2.2" stroke-linecap="round" opacity=".8"/>
+        <line x1="876" y1="181" x2="887" y2="179" stroke="#ff1493" stroke-width="2"   stroke-linecap="round" opacity=".65"/>
+        <line x1="869" y1="188" x2="879" y2="191" stroke="#ff1493" stroke-width="1.8" stroke-linecap="round" opacity=".55"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Hero 2-col: LEFT = Instagram frame | RIGHT = text + education -->
+  <div class="container-fluid px-4 px-lg-5" style="position:relative;z-index:2;">
+    <div class="row align-items-center gy-5">
+
+      <!-- LEFT: Instagram-style photo frame -->
+      <div class="col-lg-5 d-flex justify-content-center justify-content-lg-end fade-in">
+        <div class="insta-frame">
+          <!-- Top bar: avatar dot + username + menu dots -->
+          <div class="insta-top">
+            <div class="insta-avatar-dot"></div>
+            <span class="insta-username">vanngoc.pham</span>
+            <span class="insta-dots">•••</span>
+          </div>
+          <!-- Photo area -->
+          <div class="insta-photo">
+            <!-- Replace with real photo: <img src="images/profile.png" alt="Phạm Thái Vân Ngọc"> -->
+            <div class="insta-photo-ph">
+              <i class="fas fa-user"></i>
+              <span>Thêm ảnh vào đây</span>
+            </div>
+          </div>
+          <!-- Bottom bar: reaction icons + dots indicator -->
+          <div class="insta-bottom">
+            <div class="d-flex align-items-center gap-2">
+              <div class="insta-react react-heart"><i class="fas fa-heart"></i></div>
+              <div class="insta-react react-like"><i class="fas fa-thumbs-up"></i></div>
+              <div class="insta-react react-view"><i class="fas fa-eye"></i></div>
+            </div>
+            <div class="insta-dots-nav">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+          <!-- Floating heart badge (top-right) -->
+          <div class="insta-badge-heart">
+            <i class="fas fa-heart"></i>
+          </div>
+          <!-- Floating like badge (left) -->
+          <div class="insta-badge-like">
+            <i class="fas fa-thumbs-up"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: name, description, education -->
+      <div class="col-lg-7 fade-in ps-lg-5">
+        <!-- Hello I'm -->
+        <div class="hero-hello-row mb-1">
+          <span class="hero-hello-text">Hello,</span>
+          <span class="hero-im"> I'm</span>
+        </div>
+
+        <!-- PHẠM THÁI + Vân Ngọc stacked -->
+        <div class="hero-name-block mb-3">
+          <div class="hero-name-top">PHẠM THÁI</div>
+          <div class="hero-name-script">Vân Ngọc</div>
+        </div>
+
+        <!-- Description -->
+        <p class="hero-desc mb-4">
+          Với tư duy của Marketer kết hợp cùng kinh nghiệm trong Social Media, Content Creation và Scriptwriting,
+          tôi có khả năng phát triển ý tưởng, xây dựng nội dung và chuyển hóa thông điệp thương hiệu thành những
+          nội dung phù hợp với người dùng trên các nền tảng số. Tôi mong muốn được phát triển chuyên môn trong môi
+          trường sáng tạo, đồng thời phát huy khả năng viết nội dung, xây dựng kịch bản và phối hợp sản xuất để
+          cùng doanh nghiệp tạo ra những giá trị nội dung khác biệt.
+        </p>
+
+        <!-- Education block -->
+        <div class="hero-education">
+          <div class="edu-title">EDUCATION</div>
+          <div class="edu-school">Trường Đại học Kinh tế - Tài chính TP.HCM</div>
+          <div class="edu-row"><span class="edu-label">Ngành:</span> Marketing</div>
+          <div class="edu-row"><span class="edu-label">Chuyên ngành:</span> Quảng cáo</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     SKILLS & CONTACT SECTION
+══════════════════════════════════ -->
+<section id="skills-contact" class="skills-section">
+  <!-- Pink gradient band at bottom of this section -->
+  <div class="skills-bg-grad"></div>
+
+  <div class="container-fluid px-4 px-lg-5 position-relative" style="z-index:2;">
+    <div class="row align-items-end">
+
+      <!-- LEFT: skills + contact -->
+      <div class="col-lg-7 fade-in">
+
+        <!-- SOFTWARE SKILLS row -->
+        <div class="d-flex align-items-center gap-4 mb-4">
+          <div class="sk-section-label">SOFTWARE<br>SKILLS</div>
+          <div class="d-flex gap-3 align-items-center flex-wrap">
+            <!-- CapCut -->
+            <div class="sw-icon-box">
+              <svg viewBox="0 0 48 48" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="10" fill="#1a1a1a"/>
+                <path d="M24 10 L38 18 L38 30 L24 38 L10 30 L10 18 Z" fill="none" stroke="#fff" stroke-width="2.5"/>
+                <path d="M19 24 L24 16 L29 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/>
+                <line x1="24" y1="16" x2="24" y2="32" stroke="#fff" stroke-width="2.5"/>
+              </svg>
+            </div>
+            <!-- ChatGPT / OpenAI -->
+            <div class="sw-icon-box">
+              <svg viewBox="0 0 48 48" width="36" height="36" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="10" fill="#1a1a1a"/>
+                <path d="M24 8C15.163 8 8 15.163 8 24s7.163 16 16 16 16-7.163 16-16S32.837 8 24 8zm0 4a12 12 0 0 1 10.594 17.674L14.326 13.406A11.955 11.955 0 0 1 24 12zm0 24a12 12 0 0 1-10.594-17.674l20.268 20.268A11.955 11.955 0 0 1 24 36z" fill="#fff"/>
+              </svg>
+            </div>
+            <!-- Canva text logo -->
+            <div class="sw-icon-box sw-canva">
+              <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;color:#fff;letter-spacing:-0.5px;">Canva</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERSONAL SKILLS grid -->
+        <div class="sk-section-label mb-3">PERSONAL SKILLS</div>
+        <div class="ps-grid mb-5">
+          <div class="ps-tag">Creative</div>
+          <div class="ps-tag">Content</div>
+          <div class="ps-tag">Basic Design</div>
+          <div class="ps-tag">Scriptwriting</div>
+          <div class="ps-tag">Social Media</div>
+          <div class="ps-tag">Production</div>
+        </div>
+
+        <!-- Contact info -->
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="contact-icon-wrap"><i class="fas fa-phone"></i></div>
+            <span>0943606270</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-wrap"><i class="fas fa-envelope"></i></div>
+            <span>vanngoc2004.99@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon-wrap"><i class="fab fa-facebook-f"></i></div>
+            <span>facebook.com/vanngoc.phamthai</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: full-body photo + sparkle -->
+      <div class="col-lg-5 d-flex justify-content-center justify-content-lg-end align-items-end fade-in" style="position:relative;">
+        <!-- Sparkle diamonds -->
+        <div class="sparkle-wrap">
+          <svg class="sparkle-svg" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 2 L33 28 L58 30 L33 32 L30 58 L27 32 L2 30 L27 28 Z" fill="none" stroke="#e8007a" stroke-width="1.5"/>
+            <path d="M48 10 L49.5 20 L58 22 L49.5 24 L48 34 L46.5 24 L38 22 L46.5 20 Z" fill="none" stroke="#e8007a" stroke-width="1.2" opacity=".6"/>
+          </svg>
+        </div>
+        <!-- Photo -->
+        <div class="body-photo-wrap">
+          <!-- Replace with real image: <img src="images/body.png" alt="Phạm Thái Vân Ngọc"> -->
+          <div class="body-photo-ph">
+            <i class="fas fa-user"></i>
+            <span>Ảnh toàn thân</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     OVERVIEW PROJECT HEADER
+══════════════════════════════════ -->
+<section id="overview" class="ovp-header-section">
+  <!-- Big watermark "cases" behind -->
+  <div class="ovp-watermark">cases</div>
+
+  <div class="container-fluid px-4 px-lg-5 position-relative" style="z-index:2;">
+    <!-- Title row -->
+    <div class="text-center mb-5 fade-in">
+      <div class="ovp-title-wrap">
+        <span class="ovp-title-script">Overview</span>
+        <span class="ovp-title-serif"> PROJECT</span>
+      </div>
+    </div>
+
+    <!-- Timeline 3 columns -->
+    <div class="row fade-in">
+      <!-- Col 1 -->
+      <div class="col-md-4 ovp-col">
+        <div class="ovp-col-dot"></div>
+        <div class="ovp-col-line"></div>
+        <div class="ovp-col-name">Kỷ niệm 30 năm Mái ấm Truyền tin</div>
+        <div class="ovp-col-role">Project Vice Director |<br>Project Management &amp; Event Operation</div>
+      </div>
+      <!-- Col 2 -->
+      <div class="col-md-4 ovp-col">
+        <div class="ovp-col-dot"></div>
+        <div class="ovp-col-line"></div>
+        <div class="ovp-col-name">OneAds Digital</div>
+        <div class="ovp-col-role">Social Media Intern</div>
+      </div>
+      <!-- Col 3 -->
+      <div class="col-md-4 ovp-col">
+        <div class="ovp-col-dot"></div>
+        <div class="ovp-col-line"></div>
+        <div class="ovp-col-name">Achievements</div>
+        <div class="ovp-col-role">Competitions &amp; Awards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PROJECT 1 — KỶ NIỆM 30 NĂM
+══════════════════════════════════ -->
+<section id="projects" class="proj-detail-section">
+  <div class="container-fluid px-4 px-lg-5">
+    <div class="row g-5 align-items-start">
+
+      <!-- LEFT: script role + date + logos -->
+      <div class="col-lg-5 fade-in text-center text-lg-start">
+        <!-- Big T script -->
+        <div class="proj-script-wrap">
+          <span class="proj-script-T">T</span>
+          <span class="proj-date-badge">10/2024 - 03/2025</span>
+        </div>
+        <div class="proj-role-text">rưởng ban dự án</div>
+
+        <!-- Partner logos row -->
+        <div class="proj-logos mt-4">
+          <div class="proj-logo-item">
+            <div class="proj-logo-ph">UEF</div>
+          </div>
+          <div class="proj-logo-item">
+            <div class="proj-logo-ph" style="font-size:.5rem;">Mái ấm<br>Truyền tin</div>
+          </div>
+          <div class="proj-logo-item">
+            <div class="proj-logo-ph" style="font-size:.55rem;">Hỗ trợ<br>trẻ em</div>
+          </div>
+          <div class="proj-logo-item">
+            <div class="proj-logo-ph" style="font-size:.5rem;">CSL<br>Service</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: project details -->
+      <div class="col-lg-7 fade-in">
+        <div class="proj-detail-title">
+          KỶ NIỆM <strong>30 NĂM MÁI ẤM TRUYỀN TIN</strong>
+        </div>
+        <ul class="proj-detail-list">
+          <li>
+            <span class="proj-detail-key">Tên vị trí:</span>
+            Trưởng ban Dự án.
+          </li>
+          <li>
+            <span class="proj-detail-key">Tên tổ chức:</span>
+            Dự án thiện nguyện phối hợp giữa UEF và Mái ấm Truyền Tin.
+          </li>
+          <li>
+            <span class="proj-detail-key">Sơ lược về dự án:</span>
+            Chiến dịch truyền thông và gây quỹ nhằm tổ chức kỷ niệm 30 năm thành lập Mái ấm Truyền Tin – Hỗ trợ trẻ em mồ côi.
+          </li>
+          <li>
+            <span class="proj-detail-key">Vấn đề:</span>
+            Dự án không có ngân sách sẵn có, team phải tự gây quỹ 100% để tổ chức sự kiện cho hơn 200 khách mời; cần phải đẩy mạnh truyền thông để bán hàng thu kinh phí tổ chức.
+          </li>
+        </ul>
+        <a href="#" class="btn-pink-outline mt-3 d-inline-block">Xem chi tiết →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     WORK DETAIL
+══════════════════════════════════ -->
+<section id="work-detail" class="section-py">
+  <div class="container px-4">
+    <div class="mb-4 fade-in">
+      <p class="eyebrow">Chi tiết công việc</p>
+      <div class="section-script">Chi tiết <span>Công việc</span></div>
+      <div class="pink-line mt-2"></div>
+    </div>
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5 fade-in">
+        <div class="work-body-text">
+          <p>Trong quá trình thực hiện các dự án, tôi đảm nhận nhiều vai trò từ lên ý tưởng, sản xuất nội dung đến triển khai thực tế và đo lường kết quả.</p>
+          <p>Mỗi công việc đều được lên kế hoạch chi tiết với timeline rõ ràng, đảm bảo tiến độ và chất lượng đầu ra cao nhất.</p>
+          <p>Không ngừng học hỏi từ mỗi dự án và áp dụng bài học vào công việc tiếp theo để liên tục cải thiện hiệu quả.</p>
+        </div>
+      </div>
+      <!-- Skill bars — loaded via HTMX on first intersect -->
+      <div class="col-lg-7 fade-in"
+           id="skill-bars"
+           hx-get="partials/skill-bars.html"
+           hx-trigger="intersect once"
+           hx-swap="innerHTML"
+           hx-indicator="#skills-spinner">
+        <div id="skills-spinner" class="htmx-indicator text-center py-3">
+          <span class="pink-spinner"></span>
+        </div>
+        <!-- static fallback -->
+        <div class="d-flex flex-column gap-3" id="skill-bars-static">
+          <div>
+            <div class="sb-label"><span>Content Creation</span><span>90%</span></div>
+            <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
+          </div>
+          <div>
+            <div class="sb-label"><span>Social Media Management</span><span>85%</span></div>
+            <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+          </div>
+          <div>
+            <div class="sb-label"><span>Event Organization</span><span>75%</span></div>
+            <div class="progress"><div class="progress-bar" style="width:75%"></div></div>
+          </div>
+          <div>
+            <div class="sb-label"><span>Graphic Design (Canva)</span><span>80%</span></div>
+            <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+          </div>
+          <div>
+            <div class="sb-label"><span>Copywriting</span><span>88%</span></div>
+            <div class="progress"><div class="progress-bar" style="width:88%"></div></div>
+          </div>
+          <div>
+            <div class="sb-label"><span>Presentation</span><span>82%</span></div>
+            <div class="progress"><div class="progress-bar" style="width:82%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     MASTER FILE — HTMX tab switching
+══════════════════════════════════ -->
+<section id="master-file" class="section-py">
+  <div class="glow" style="width:400px;height:400px;background:var(--pink);top:50%;right:-100px;transform:translateY(-50%);"></div>
+  <div class="container px-4" style="position:relative;z-index:1;">
+    <div class="mb-4 fade-in">
+      <p class="eyebrow">Tài liệu</p>
+      <div class="section-script">View Full Event <span>Master File</span></div>
+      <div class="pink-line mt-2"></div>
+    </div>
+    <div class="row g-5 align-items-start">
+      <!-- Spreadsheet mock with HTMX tabs -->
+      <div class="col-lg-6 fade-in">
+        <div class="spreadsheet-mock">
+          <div class="ss-toolbar d-flex align-items-center gap-2">
+            <span class="ss-dot r"></span>
+            <span class="ss-dot y"></span>
+            <span class="ss-dot g"></span>
+          </div>
+          <!-- HTMX-powered tab navigation -->
+          <ul class="nav ss-tabs" id="sheetTabs">
+            <li class="nav-item">
+              <a class="nav-link active"
+                 hx-get="partials/sheet-timeline.html"
+                 hx-target="#sheet-body"
+                 hx-swap="innerHTML transition:true"
+                 hx-indicator="#sheet-spinner"
+                 hx-on:click="setActiveTab(this)"
+                 href="javascript:void(0)">Timeline</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 hx-get="partials/sheet-budget.html"
+                 hx-target="#sheet-body"
+                 hx-swap="innerHTML transition:true"
+                 hx-indicator="#sheet-spinner"
+                 hx-on:click="setActiveTab(this)"
+                 href="javascript:void(0)">Budget</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 hx-get="partials/sheet-team.html"
+                 hx-target="#sheet-body"
+                 hx-swap="innerHTML transition:true"
+                 hx-indicator="#sheet-spinner"
+                 hx-on:click="setActiveTab(this)"
+                 href="javascript:void(0)">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 hx-get="partials/sheet-checklist.html"
+                 hx-target="#sheet-body"
+                 hx-swap="innerHTML transition:true"
+                 hx-indicator="#sheet-spinner"
+                 hx-on:click="setActiveTab(this)"
+                 href="javascript:void(0)">Checklist</a>
+            </li>
+          </ul>
+          <!-- sheet content target -->
+          <div id="sheet-body" class="ss-tab-pane" style="min-height:220px;">
+            <div id="sheet-spinner" class="htmx-indicator text-center py-4">
+              <span class="pink-spinner"></span>
+            </div>
+            <!-- Default: Timeline table (also in partial for HTMX) -->
+            <table class="table ss-table">
+              <thead>
+                <tr><th>Hạng mục</th><th>Người phụ trách</th><th>Deadline</th><th>Trạng thái</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Lên kế hoạch tổng thể</td><td>Đắc Ngọc</td><td>T1/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+                <tr><td>Thiết kế backdrop, banner</td><td>Design Team</td><td>T2/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+                <tr><td>Liên hệ nhà tài trợ</td><td>Đắc Ngọc</td><td>T2/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+                <tr><td>Booking MC, âm thanh</td><td>Event Team</td><td>T3/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+                <tr><td>Truyền thông mạng xã hội</td><td>Đắc Ngọc</td><td>T3/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+                <tr><td>Báo cáo sau sự kiện</td><td>Đắc Ngọc</td><td>T4/2024</td><td><span class="badge-pink">Hoàn thành</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 fade-in">
+        <ul class="mf-bullets mb-3">
+          <li><i class="fas fa-check-circle"></i>Bộ tài liệu đầy đủ toàn bộ quy trình tổ chức sự kiện từ khâu lên kế hoạch đến ngày diễn ra.</li>
+          <li><i class="fas fa-check-circle"></i>Các sheet riêng biệt: ngân sách, nhân sự, timeline, checklist và báo cáo kết quả.</li>
+          <li><i class="fas fa-check-circle"></i>Công cụ quản lý giúp toàn team phối hợp nhịp nhàng, không bỏ sót công việc nào.</li>
+          <li><i class="fas fa-check-circle"></i>Cập nhật real-time, dễ dàng chia sẻ và theo dõi tiến độ từ xa.</li>
+        </ul>
+        <p style="font-size:.78rem;color:var(--gray);">
+          Tổng cộng <strong class="text-pink">50+ trang tài liệu</strong> từ concept ban đầu đến tổng kết sau sự kiện.
+        </p>
+        <a href="#" class="btn-pink-outline mt-3 d-inline-block">Xem tài liệu →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     SOCIAL / A&P
+══════════════════════════════════ -->
+<section id="social-stats" class="section-py">
+  <div class="container px-4">
+    <!-- Brand header -->
+    <div class="d-flex align-items-flex-end gap-3 mb-4 fade-in">
+      <div class="brand-a">A</div>
+      <div class="align-self-end pb-1">
+        <div class="brand-sub">&amp; P Media</div>
+        <div style="font-size:.68rem;color:var(--gray2);letter-spacing:2px;text-transform:uppercase;">Social Media Presence</div>
+      </div>
+    </div>
+
+    <div class="row g-5 align-items-start">
+      <!-- LEFT: laptop + stats -->
+      <div class="col-lg-6 fade-in">
+        <div class="mb-3">
+          <div class="laptop-screen">
+            <!-- <img src="images/artgesa-web.jpg" alt=""> -->
+            <div class="ls-ph"><i class="fas fa-desktop"></i><span>Artgesa Website Preview</span></div>
+          </div>
+          <div class="laptop-base"></div>
+          <div class="laptop-foot"></div>
+        </div>
+        <div class="row g-3 mt-1">
+          <div class="col-4">
+            <div class="stat-box-custom">
+              <div class="text-pink mb-1"><i class="fab fa-instagram fa-lg"></i></div>
+              <div class="sn">180</div>
+              <div class="sl">Followers</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="stat-box-custom">
+              <div class="text-pink mb-1"><i class="fab fa-facebook fa-lg"></i></div>
+              <div class="sn">500+</div>
+              <div class="sl">Page Likes</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="stat-box-custom">
+              <div class="text-pink mb-1"><i class="fas fa-chart-line fa-lg"></i></div>
+              <div class="sn">2K+</div>
+              <div class="sl">Reach/Post</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: text + team photos -->
+      <div class="col-lg-6 artgesa-text fade-in">
+        <p class="eyebrow mb-1">Thương hiệu &amp; Truyền thông</p>
+        <div class="section-script mb-2" style="font-size:2rem;">Artgesa <span>Campaign</span></div>
+        <div class="pink-line mb-3"></div>
+        <p>Chiến dịch xây dựng thương hiệu toàn diện cho <strong>Artgesa</strong>, bao gồm thiết kế bộ nhận diện, kế hoạch nội dung và triển khai các kênh digital.</p>
+        <p>Kết quả: tăng trưởng organic followers, cải thiện engagement rate và nâng cao nhận diện thương hiệu.</p>
+        <p>Nội dung được lên lịch đều đặn với strategy phù hợp từng nền tảng: Facebook, Instagram và website.</p>
+        <div class="row g-2 mt-2">
+          <div class="col-4"><div class="team-photo-ph"><i class="fas fa-users"></i></div></div>
+          <div class="col-4"><div class="team-photo-ph"><i class="fas fa-camera"></i></div></div>
+          <div class="col-4"><div class="team-photo-ph"><i class="fas fa-image"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     WHAT I DID
+══════════════════════════════════ -->
+<section id="what-i-did" class="section-py">
+  <div class="wid-bg">WHAT I DID</div>
+  <div class="container px-4" style="position:relative;z-index:1;">
+    <div class="mb-4 fade-in">
+      <p class="eyebrow">Thành tựu</p>
+      <div class="section-script">What <span>I Did?</span></div>
+      <div class="pink-line mt-2"></div>
+    </div>
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5 wid-text fade-in">
+        <p>Những gì tôi đã thực hiện được trong suốt hành trình học tập và làm việc:</p>
+        <p>Tôi đã tham gia và dẫn dắt nhiều dự án truyền thông, sự kiện và xây dựng thương hiệu.</p>
+        <div class="money-block">
+          <div class="mb-label">Doanh thu sự kiện</div>
+          <div class="mb-num">30.000.000+ VNĐ</div>
+        </div>
+        <p>Không ngừng học hỏi, thử nghiệm và cải tiến — đó là phương châm tôi luôn theo đuổi.</p>
+      </div>
+      <div class="col-lg-7 fade-in">
+        <ul class="achievement-list">
+          <li><i class="fas fa-check-circle"></i>Lên kế hoạch và tổ chức thành công nhiều sự kiện quy mô vừa và lớn với hơn 200+ người tham dự</li>
+          <li><i class="fas fa-check-circle"></i>Xây dựng nội dung mạng xã hội tăng tương tác 40%+ trong 3 tháng</li>
+          <li><i class="fas fa-check-circle"></i>Quản lý fanpage và Instagram đạt 180+ followers hữu cơ không chạy quảng cáo</li>
+          <li><i class="fas fa-check-circle"></i>Thiết kế visual bằng Canva cho nhiều chiến dịch truyền thông đạt hiệu quả cao</li>
+          <li><i class="fas fa-check-circle"></i>Viết kịch bản, MC và dẫn chương trình cho các sự kiện chuyên nghiệp</li>
+          <li><i class="fas fa-check-circle"></i>Phối hợp nhịp nhàng với team đa bộ phận để hoàn thành dự án đúng tiến độ</li>
+          <li><i class="fas fa-check-circle"></i>Sản xuất bộ tài liệu Master File chuẩn hóa quy trình tổ chức sự kiện 50+ trang</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     RESULTS TABLE  (HTMX lazy-load)
+══════════════════════════════════ -->
+<section id="results" class="section-py">
+  <div class="container px-4">
+    <div class="mb-4 fade-in">
+      <p class="eyebrow">Kết quả</p>
+      <div class="section-script">Kết quả <span>Công việc</span></div>
+      <div class="pink-line mt-2"></div>
+    </div>
+
+    <div id="results-table"
+         hx-get="partials/results-table.html"
+         hx-trigger="intersect once"
+         hx-swap="innerHTML"
+         hx-indicator="#results-spinner"
+         class="table-responsive fade-in">
+      <div id="results-spinner" class="htmx-indicator text-center py-4">
+        <span class="pink-spinner"></span>
+      </div>
+      <!-- Static fallback -->
+      <table class="table result-table">
+        <thead>
+          <tr>
+            <th>Dự án / Nhiệm vụ</th><th>Vai trò</th><th>Kết quả</th><th>Thời gian</th><th>Trạng thái</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Artgesa Brand Campaign</td><td>Content Creator</td><td>Tăng 40% tương tác</td><td>3 tháng</td>
+            <td><span class="badge-pink">Hoàn thành</span></td>
+          </tr>
+          <tr>
+            <td>Full Event Organization</td><td>Event Planner</td><td>200+ người tham dự</td><td>2 tháng</td>
+            <td><span class="badge-pink">Hoàn thành</span></td>
+          </tr>
+          <tr>
+            <td>A&amp;P Social Media</td><td>Social Media Manager</td><td>180+ followers</td><td>Ongoing</td>
+            <td><span class="badge-pink">Đang thực hiện</span></td>
+          </tr>
+          <tr>
+            <td>Content Plan 2024</td><td>Copywriter &amp; Designer</td><td>30 posts/tháng</td><td>6 tháng</td>
+            <td><span class="badge-pink">Hoàn thành</span></td>
+          </tr>
+          <tr>
+            <td>Master File Documentation</td><td>Project Manager</td><td>Tài liệu đầy đủ 50+ trang</td><td>1 tháng</td>
+            <td><span class="badge-pink">Hoàn thành</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Contact / CTA button với HTMX POST -->
+    <div class="text-center mt-5 fade-in">
+      <p style="font-size:.8rem;color:var(--gray);margin-bottom:16px;">Bạn muốn hợp tác? Hãy liên hệ với tôi!</p>
+      <button class="btn-pink"
+              hx-post="partials/contact-handler.html"
+              hx-swap="none"
+              hx-on::after-request="showContactToast()">
+        <i class="fas fa-paper-plane me-2"></i>Liên hệ ngay
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer class="py-4">
+  <div class="container px-4">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4 d-flex align-items-center gap-3">
+        <div class="footer-photo">
+          <!-- <img src="images/profile-small.jpg" alt=""> -->
+          <div class="fp-ph"><i class="fas fa-user"></i></div>
+        </div>
+        <div>
+          <div class="footer-logo">P<span>ORT</span>FOLIO</div>
+          <div style="font-size:.62rem;color:var(--gray2);margin-top:2px;">Pham Thai Dac Ngoc</div>
+        </div>
+      </div>
+      <div class="col-md-4 text-center footer-copy">
+        © 2024 Pham Thai Dac Ngoc · All rights reserved<br>
+        <span class="text-pink" style="font-size:.62rem;">Content Creator · Social Media · Event Planner</span>
+      </div>
+      <div class="col-md-4 d-flex flex-column align-items-md-end gap-2">
+        <div class="d-flex gap-2 flex-wrap justify-content-md-end" style="font-size:.65rem;">
+          <a href="#hero" class="text-secondary text-decoration-none" style="letter-spacing:1.5px;text-transform:uppercase;font-size:.65rem;transition:color .3s;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color=''">Home</a>
+          <a href="#overview" class="text-secondary text-decoration-none" style="letter-spacing:1.5px;text-transform:uppercase;font-size:.65rem;transition:color .3s;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color=''">Overview</a>
+          <a href="#projects" class="text-secondary text-decoration-none" style="letter-spacing:1.5px;text-transform:uppercase;font-size:.65rem;transition:color .3s;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color=''">Projects</a>
+          <a href="#results" class="text-secondary text-decoration-none" style="letter-spacing:1.5px;text-transform:uppercase;font-size:.65rem;transition:color .3s;" onmouseover="this.style.color='var(--pink)'" onmouseout="this.style.color=''">Results</a>
+        </div>
+        <div class="d-flex gap-2">
+          <a href="#" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- Custom JS -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
