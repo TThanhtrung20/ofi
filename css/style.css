@@ -1128,6 +1128,198 @@ body {
 }
 
 /* -----------------------------
+   AURA PERFUMES
+----------------------------- */
+.aura-section {
+  background: var(--black);
+  overflow: hidden;
+}
+
+/* Top area */
+.aura-top {
+  position: relative;
+  padding: 50px 0 0;
+  min-height: 260px;
+}
+
+/* Person photo — floats left, bleeds to edge */
+.aura-person-col { padding: 0; align-self: flex-end; }
+.aura-person {
+  width: clamp(120px, 18vw, 220px);
+  height: clamp(180px, 28vw, 320px);
+  position: relative;
+  overflow: hidden;
+}
+.aura-person img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+}
+.aura-person-ph {
+  width: 100%; height: 100%;
+  background: linear-gradient(180deg, #1a0812 0%, #2e0a20 100%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px; color: rgba(232,0,122,.4);
+}
+.aura-person-ph i { font-size: 3rem; }
+
+/* Leader tag */
+.aura-tag-row { margin-bottom: 6px; }
+.aura-leader-tag {
+  font-size: .7rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 2px;
+  background: rgba(255,255,255,.08);
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+.aura-leader-tag strong { color: var(--pink); }
+
+/* Aura Perfumes logo */
+.aura-logo-wrap { line-height: .9; margin-bottom: 14px; }
+.aura-logo-line1 {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+}
+.aura-script-A {
+  font-family: 'Ruthie', 'Great Vibes', cursive;
+  font-size: clamp(4rem, 9vw, 8rem);
+  color: var(--pink);
+  line-height: .8;
+  text-shadow: 0 0 30px rgba(204,0,102,.4);
+}
+.aura-script-ura {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  color: var(--pink);
+  padding-bottom: 14px;
+  padding-left: 4px;
+}
+.aura-logo-line2 {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.aura-script-P {
+  font-family: 'Ruthie', 'Great Vibes', cursive;
+  font-size: clamp(4rem, 9vw, 8rem);
+  color: var(--pink);
+  line-height: .8;
+  text-shadow: 0 0 30px rgba(204,0,102,.4);
+}
+.aura-script-erfumes {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  color: var(--pink);
+  padding-bottom: 14px;
+  padding-left: 4px;
+}
+
+/* Highlight badge */
+.aura-highlight-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 14px;
+  padding-bottom: 10px;
+}
+.aura-star { width: 20px; height: 20px; }
+.aura-highlight-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  color: var(--white);
+  font-style: italic;
+}
+
+/* Description */
+.aura-desc {
+  font-size: .8rem;
+  line-height: 1.85;
+  color: var(--gray);
+  max-width: 480px;
+}
+
+/* Pink stats banner */
+.aura-stats-banner {
+  background: linear-gradient(90deg, var(--pink-dark) 0%, var(--pink) 50%, var(--pink-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 18px 40px;
+  margin-top: 20px;
+}
+.aura-stat {
+  text-align: center;
+  padding: 0 40px;
+  flex: 1;
+  max-width: 200px;
+}
+.as-num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+.as-label {
+  display: block;
+  font-size: .72rem;
+  color: rgba(255,255,255,.85);
+  letter-spacing: 1px;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.aura-stat-divider {
+  width: 1px;
+  height: 50px;
+  background: rgba(255,255,255,.3);
+  flex-shrink: 0;
+}
+
+/* Facebook post previews */
+.aura-posts { padding-top: 20px; padding-bottom: 50px; }
+.fb-post-card {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  background: var(--dark2);
+  transition: transform .3s, border-color .3s;
+}
+.fb-post-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--pink);
+}
+.fb-post-ph {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(140deg, #1a0812, #280a1e);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px; color: rgba(232,0,122,.4); font-size: .72rem;
+}
+.fb-post-ph i { font-size: 2.4rem; }
+.fb-post-card img {
+  width: 100%; height: 200px;
+  object-fit: cover; display: block;
+}
+.fb-post-bar {
+  padding: 8px 12px;
+  background: var(--dark2);
+}
+.fb-page-name {
+  font-size: .65rem;
+  font-weight: 700;
+  color: var(--pink);
+  letter-spacing: 1px;
+}
+
+/* -----------------------------
    ACHIEVEMENTS
 ----------------------------- */
 #work-detail { background: var(--dark); }
