@@ -908,7 +908,227 @@ body {
 .chitiet-result-card strong { color: var(--white); }
 
 /* -----------------------------
-   ACHIEVEMENTS / COMPETITIONS
+   PROPOSAL & EVENT PHOTOS
+----------------------------- */
+.proposal-section {
+  background: var(--black);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Desktop iMac mockup */
+.desktop-mock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dm-label {
+  font-size: .68rem;
+  font-style: italic;
+  color: var(--gray2);
+  text-align: center;
+  margin-top: 8px;
+}
+.dm-screen {
+  width: 100%;
+  background: #1a1a1a;
+  border: 3px solid #444;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  position: relative;
+}
+.dm-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dm-screen-ph {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.dm-screen-sky {
+  flex: 1;
+  background: linear-gradient(180deg, #87CEEB 0%, #c8e8f8 60%, #f0f8e8 100%);
+}
+.dm-screen-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.dm-tag {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(.9rem, 1.8vw, 1.3rem);
+  color: #e06030;
+  letter-spacing: 1px;
+}
+.dm-big-text {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #d4a020;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 0 #8b6010;
+}
+.dm-neck {
+  width: 12%;
+  height: 20px;
+  background: #555;
+  margin: 0 auto;
+}
+.dm-base {
+  width: 40%;
+  height: 10px;
+  background: #444;
+  border-radius: 0 0 6px 6px;
+  margin: 0 auto;
+}
+
+/* Event photo boxes */
+.event-photo-box {
+  border: 2px solid var(--pink);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.event-photo-box.tall  { height: 180px; }
+.event-photo-box.short { height: 130px; }
+.event-photo-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.event-photo-ph {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #1a0812, #280a1e);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px; color: rgba(232,0,122,.45); font-size: .72rem;
+}
+.event-photo-ph i { font-size: 2rem; }
+.event-photo-border {
+  position: absolute; inset: 0;
+  border: 2px solid rgba(232,0,122,.3);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+/* Fanpage description */
+.fanpage-desc {
+  font-size: .86rem;
+  line-height: 1.95;
+  color: var(--white);
+}
+.fanpage-desc strong { color: var(--white); font-weight: 700; }
+
+/* 3 phone mockups row */
+.phones-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+.phone-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.phone-label {
+  font-size: .62rem;
+  color: var(--pink);
+  letter-spacing: 1px;
+  font-style: italic;
+  text-align: center;
+}
+.phone-mock {
+  width: 150px;
+  background: #111;
+  border: 2px solid #333;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06);
+  position: relative;
+}
+.phone-notch {
+  height: 22px;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phone-notch::after {
+  content: '';
+  width: 50px; height: 10px;
+  background: #111;
+  border-radius: 0 0 10px 10px;
+}
+.phone-screen { padding: 10px 10px 14px; }
+.phone-screen img { width: 100%; display: block; border-radius: 4px; }
+.phone-screen-ph {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.phone-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(232,0,122,.25);
+  border: 2px solid rgba(232,0,122,.4);
+  margin: 0 auto 4px;
+}
+.phone-name {
+  font-size: .6rem;
+  font-weight: 700;
+  color: var(--white);
+  text-align: center;
+}
+.phone-followers {
+  font-size: .45rem;
+  color: var(--gray2);
+  text-align: center;
+  line-height: 1.4;
+}
+.phone-bio {
+  font-size: .46rem;
+  color: var(--gray);
+  text-align: center;
+  line-height: 1.5;
+}
+.phone-btns {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin-top: 4px;
+}
+.phone-btn-follow,
+.phone-btn-msg {
+  font-size: .46rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.phone-btn-follow { background: #1877f2; color: #fff; }
+.phone-btn-msg    { background: #333; color: #ccc; }
+
+/* Checkerboard pattern */
+.checker-pattern {
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  width: 180px;
+  height: 120px;
+  background-image:
+    repeating-conic-gradient(rgba(140,0,60,.35) 0% 25%, transparent 0% 50%);
+  background-size: 22px 22px;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 4px;
+}
+
+/* -----------------------------
+   ACHIEVEMENTS
 ----------------------------- */
 #work-detail { background: var(--dark); }
 .work-body-text { font-size: .78rem; line-height: 1.9; color: var(--gray); }
